@@ -37,8 +37,8 @@ global.getFiles = function getFiles(dir, rootFile)
   return files_;
 }
 
-before(function before( done ) 
-{  
-	// If needed
-  done();
-});
+// before(function before( done ) 
+// {  
+// 	// If needed
+//   done();
+// });

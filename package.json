@@ -14,13 +14,15 @@
     "coveralls": "^2.11.6",
     "eslint": "^1.10.3",
     "istanbul": "^0.4.1",
-    "mocha": "^2.3.4",
-    "mocha-lcov-reporter": "^1.0.0"
+    "istanbul-coveralls": "^1.0.3",
+    "mocha": "^2.3.4"
   },
   "scripts": {
     "start": "node prism.js",
-    "test": "export TEST_ENV=true && make test",
-    "coverage": "./node_modules/istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha -- --ui bdd -R spec -t 5000"
+    "lint": "./node_modules/.bin/eslint \"**/*.js\" \"**/.*.js\"",
+    "test": "export TEST_ENV=true && export NODE_ENV=test && mocha",
+    "test-cov": "npm run lint && istanbul cover --config .istanbul.js _mocha",
+    "test-coveralls": "npm run lint && npm run test && istanbul cover --config .istanbul.js _mocha && istanbul-coveralls"
   },
   "repository": {
     "type": "git",
