@@ -1,0 +1,12 @@
+# Mocha will attempt to load ./test/mocha.opts by default.
+# These are concatenated with process.argv, though command-line args will take precedence.
+# See http://mochajs.org/#usage for more options
+
+# Note: For the real mocha.opts file, comments are not allowed (though it accepts blank lines)
+
+--require should
+	# If we require should, we don't get a global 'should' variable and therefore can't do should.exists(someVar) calls. Pretty annoying, basically a useless option.
+--ui bdd
+--reporter dot
+--bail
+--recursive
