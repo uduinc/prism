@@ -9,14 +9,14 @@
  */
 
 // These are needed in all the tests (no scope restriction wanted)
-_ = require( 'lodash' );
-assert = require('assert');
-fs = require( 'fs' );
-async = require( 'async' );
+global._ = require( 'lodash' );
+global.assert = require('assert');
+global.fs = require( 'fs' );
+global.async = require( 'async' );
 
 // Requires all the files/folders inside of 'dir' recursively, with no maximum depth
 // This is exposed to each test file (see example-tests folder for how to use)
-getFiles = function getFiles(dir, rootFile)
+global.getFiles = function getFiles(dir, rootFile)
 {
   var files_ = [];
   var files = fs.readdirSync(dir);
