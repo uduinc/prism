@@ -22,4 +22,4 @@ test-coveralls:
 		./node_modules/.bin/_mocha && \
 		cat ./coverage/lcov.info | ./node_modules/.bin/coveralls || true
 
-.PHONY: test
+.PHONY: lint test test-cov test-coveralls
