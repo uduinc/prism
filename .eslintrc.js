@@ -6,8 +6,8 @@
 *  1 - warning
 *  2 - error
 */
-const MAX_STATEMENTS_IN_FN = 20;
-const NUM_SPACES_INDENT = 2;
+var MAX_STATEMENTS_IN_FN = 20;
+var NUM_SPACES_INDENT = 2;
 
 module.exports = {
   rules: {
@@ -46,7 +46,7 @@ module.exports = {
     'no-iterator': 2,
     'no-labels': 2,
     'no-loop-func': 2,
-    'no-magic-numbers': [1, { enforceConst: true } ],
+    'no-magic-numbers': [1, { enforceConst: false } ],
     'no-multi-spaces': 2,
     'no-multi-str': 2,
     'no-native-reassign': 2,
