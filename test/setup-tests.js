@@ -1,3 +1,6 @@
+'use strict';
+/* global _:true assert:true async:true before:true fs:true getFiles:true */
+/* eslint no-native-reassign: [2, { "exceptions": ["_", "assert", "async", "fs", "getFiles"] } ] */
 /**
  * Setup for testing in a structured manner.
  * See test-set-1/test-set-1.js for a good example of using getFiles to structure your tests 
@@ -13,31 +16,29 @@ async = require( 'async' );
 
 // Requires all the files/folders inside of 'dir' recursively, with no maximum depth
 // This is exposed to each test file (see example-tests folder for how to use)
-getFiles = function (dir, rootFile)
+getFiles = function getFiles(dir, rootFile)
 {
-    var files_ = [];
-    var files = fs.readdirSync(dir);
-    for (var i = 0; i < files.length; i++ ) 
+  var files_ = [];
+  var files = fs.readdirSync(dir);
+  var fileObj, i, name;
+    
+  for (i = 0; i < files.length; i++ ) 
     {
-        var name = dir + '/' + files[i];
-
-        if (fs.statSync(name).isDirectory()){
-            files_ = files_.concat( _.compact( getFiles(name) ) || [] );
-        } else if ( dir + '/' + files[i] === rootFile ) {
-        	console.log( 'Not requiring callee file: ' + rootFile );
-        } else {
-        	var fileObj = {
-        		name: files[i].replace( '.js', ''),
-        		run: require( name )
-        	};
-            files_.push(fileObj);
-        }
+    name = dir + '/' + files[i];
+    if (fs.statSync(name).isDirectory()){
+      files_ = files_.concat( _.compact( getFiles(name) ) || [] );
+    } else if ( dir + '/' + files[i] === rootFile ) { console.log( 'Not requiring callee file: ' + rootFile );
+    } else { fileObj = { name: files[i].replace( '.js', ''), run: require( name )
+     };
+      files_.push(fileObj);
+      fileObj = null;
     }
-    return files_;
+  }
+  return files_;
 }
 
-before(function ( done ) 
+before(function before( done ) 
 {  
 	// If needed
-    done();
+  done();
 });

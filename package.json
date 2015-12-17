@@ -11,11 +11,16 @@
     "should": "^8.0.1"
   },
   "devDependencies": {
-    "mocha": "^2.3.4"
+    "coveralls": "^2.11.6",
+    "eslint": "^1.10.3",
+    "istanbul": "^0.4.1",
+    "mocha": "^2.3.4",
+    "mocha-lcov-reporter": "^1.0.0"
   },
   "scripts": {
     "start": "node prism.js",
-    "test": "export TEST_ENV=true && mocha"
+    "test": "export TEST_ENV=true && make test-coveralls",
+    "coverage": "./node_modules/istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha -- --ui bdd -R spec -t 5000"
   },
   "repository": {
     "type": "git",
