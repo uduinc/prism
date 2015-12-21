@@ -21,13 +21,16 @@
 
   The default configuration is as follows:
 */
+var LOW_COVERAGE = 50;
+var HIGH_COVERAGE = 80;
+
 module.exports = {
   verbose: false,
   instrumentation: {
     'root': '.',
     'extensions': ['.js'],
     'default-excludes': true,
-    'excludes': [],
+    'excludes': ['__eslint_rules/**'],
     'embed-source': false,
     'variable': '__coverage__',
     'compact': true,
@@ -44,10 +47,10 @@ module.exports = {
     'reports': ['lcov'],
     'dir': './coverage',
     'watermarks': {
-      statements: [50, 80],
-      lines: [50, 80],
-      functions: [50, 80],
-      branches: [50, 80]
+      statements: [LOW_COVERAGE, HIGH_COVERAGE],
+      lines: [LOW_COVERAGE, HIGH_COVERAGE],
+      functions: [LOW_COVERAGE, HIGH_COVERAGE],
+      branches: [LOW_COVERAGE, HIGH_COVERAGE]
     },
     'report-config': {
       'clover': { file: 'clover.xml' },
@@ -68,18 +71,18 @@ module.exports = {
   },
   check: {
     global: {
-        statements: 0,
-        lines: 0,
-        branches: 0,
-        functions: 0,
-        excludes: []
+      statements: 0,
+      lines: 0,
+      branches: 0,
+      functions: 0,
+      excludes: []
     },
     each: {
-        statements: 0,
-        lines: 0,
-        branches: 0,
-        functions: 0,
-        excludes: []
+      statements: 0,
+      lines: 0,
+      branches: 0,
+      functions: 0,
+      excludes: []
     }
   }
 };

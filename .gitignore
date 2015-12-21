@@ -1,2 +1,3 @@
+__eslint_rules/*
 coverage/*
 node_modules/*
