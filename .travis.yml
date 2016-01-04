@@ -1,8 +1,11 @@
 sudo: false
 language: node_js
 node_js:
-  - "0.12"
+- '0.12'
 install:
-  - npm install
+- npm install
 after_script:
-  - npm run test-coveralls
+- npm run test-coveralls
+notifications:
+  slack:
+    secure: H69bKNmOIaIFMiRBg8dZm9hbQXMbqDjMChjNbq6nzNFUrLVqc0gcPWOFTej4tg79XV0+8DnsveXSAbaLI1B2ogKtQvctx8eqXIp5M28kF0vZzwHA6lljwFjPRymmQ0Ui7kiuYOnTmjS+sTgZXrqhPoNxTygYLkUydEwu4jfs6MRTP9Vlj3d4omzCN6s26MjobXeaB7XIDm8Vm7/z62FjztH9LsHO+Jl2Hwa3Qe76v+abzBrOL+4Ovx/NxQNjaypXnw90KKFkEF5iuGGl5b6gKSAs8oplqyPUDw4DOIMfbqsulKJJ/04LkruNCcxGfNQRBKEAfK9mNSXB2tvL+Ux8aQeRHWy3N+5WgrEa6+dVIsR2twPQO04XT3NdoyKTSJBsdPJPBvSAfoXs0Iyd4IgApDesX4GfOm+r/WXRyPu0lLOt2zv/4syecAyqKJw4hKeavgq6mwEp0Q1KKShrlQqIwPFfS2Jjv2l+B0OBTjVfk8OWgZmV1SxB8Pc++yG+CAmNI6De23v1AP1dHoetURwjZgcieqGv4Sik6GNKxu9iBu4LYZslIXp1alJ3si0JvZBM4FFK8TCYDepBUqxeHM5kNn60OPTd411hVk14a9/R7B+5dTe2WmG8TxaCSzw4ryokM7qjRs5cFZruhtQp9aWVGjDnvRVAGwiwxJlF6cB88x0=
