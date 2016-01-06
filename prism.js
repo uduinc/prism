@@ -1,8 +1,4 @@
 'use strict';
-// console.log('Welcome to prism.');
+var grunt = require('grunt');
 
-module.exports = {
-  hi: function () {
-    return true;
-  }
-};
+grunt.tasks('prompt:prism');
